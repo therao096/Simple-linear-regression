@@ -1,0 +1,17 @@
+setwd("F:\EXCEL R\ASSIGNMENTS\SIMPLE LINEAR REGRESSION")
+salarydata <- read.csv("Salary_Data.csv")
+View((salarydata))
+install.packages("tidyverse")
+library(tidyverse)
+view(salarydata)
+attach((salarydata))
+plot(YearsExperience,Salary)
+cor(Salary,YearsExperience)
+trial1 <- lm(Salary~YearsExperience)
+summary(trial1)
+### therefore Rsquared value obtained is 0.9554. therefore it is a good model.
+trial1$fitted.values
+confint(trial1,0.95)
+predict(trial1,interval = "predict")
+attach(trial1)
+plot(trial1)
